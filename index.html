@@ -46,12 +46,14 @@
         }
 
         #cod {
-            top: 0.4rem;
-            position: fixed;
-            margin-left: 56.9rem;
             color: white;
             letter-spacing: 1px;
             font-size: 1rem;
+            display: flex;
+            top: 0;
+            right: 0;
+            justify-content: right;
+            transform: translate(382px, -84px);
         }
 
         #botao {
@@ -185,6 +187,77 @@
             transition: 1.5s;
         }
 
+
+        @media screen and (min-width: 200px) and (max-width: 800px) {
+
+            header {
+                height: 8rem;
+            }
+            h1 {
+                white-space: nowrap;
+                font-size: 1.7rem;
+                font-weight: 600;
+                margin: auto;
+            }
+
+            #botao {
+                margin: auto;
+                display: flex;
+                justify-content: center;
+                margin-top: 1rem;
+                align-items: center;
+            }
+
+            #form {
+                display: none;
+                justify-content: center;
+                margin: auto;
+                height: auto;
+            }
+
+            .input {
+                height: 1.6rem;
+                margin-top: 1rem;
+            }
+            .label {
+                font-size: 1rem;
+                margin-top: 0.5rem;
+            }
+
+            #sec {
+                display: flex;
+                flex-direction: column;
+            }
+            #imprimir {
+                display: none;
+                justify-content: center;
+                margin: auto;
+                margin-top: 4rem;
+                width: 300px;
+                margin-bottom: 2.5rem;
+            }
+
+            #enviando {
+                font-size: 1.2rem;
+                font-weight: 800;
+            }
+
+            #resultado {
+                display: flex;
+                justify-content: left;
+                margin-left: 0;
+                align-items: center;
+            }
+
+            #cod {
+               position: absolute;
+               display: flex;
+               transform: translate(-10px, 8px);
+               font-size: 0.8rem;
+               left: 1px;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -273,7 +346,6 @@
         var p =  'Prato: ' + prato;
         var s = 'Sobremesa: ' + sobremesa;
         var b = 'Bebida: ' + bebida;
-
         var cardapio = [n, p, s, b];
         console.log(cardapio);
 
@@ -295,10 +367,8 @@
             }
 
 
-            
-    
     function pedido() {
-        var qaulMesa = parseInt(prompt("Qual o codigo da Sua Mesa?"));
+        var qaulMesa = parseInt(prompt("Qual o codigo da Sua Mesa de 1 a 10?"));
         var iniciar = document.getElementById("botao");
         var saudacao = document.getElementById("saudacao");
         var form = document.getElementById("form");
@@ -329,7 +399,7 @@
                 }
 
                 if (qaulMesa == 10) {
-                    cod.innerHTML = "#  " + qaulMesa;
+                    cod.innerHTML = "#" + qaulMesa;
                 }
             }
 
@@ -337,8 +407,7 @@
         } else {
             alert("Codigo da Mesa incorreto!!");
         }
-        
-
+ 
     }
 
 
