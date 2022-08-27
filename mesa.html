@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qual é o seu pedido?</title>
+
+    <style>
+
+        * {
+            padding: 0;
+            border: 0;
+            margin: 0;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        body {
+            background-color: blue;
+        }
+
+        header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            background-color: darkblue;
+            height: 7rem;
+            width: 100%;
+        }
+
+        h1 {
+            color: antiquewhite;
+            font-size: 2.7rem;
+        }
+
+        h2 {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: whitesmoke;
+            font-size: 2rem;
+            margin-top: 0.7rem;
+            letter-spacing: 1.4px;
+        }
+
+        #cod {
+            top: 0.4rem;
+            position: fixed;
+            margin-left: 56.9rem;
+            color: white;
+            letter-spacing: 1px;
+            font-size: 1rem;
+        }
+
+        #botao {
+            margin-top: 1rem;
+            margin-left: 10.2rem;
+            width: 10rem;
+            height: 1.6rem;
+            cursor: pointer;
+            border-radius: 0.4rem;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            background-color: blueviolet;
+            color: whitesmoke;
+        }
+
+        #botao:hover {
+            transition: 3.5s;
+            background-color: rgba(0, 0, 0,0.1 );
+            border-radius: 2rem;
+            border: 0.1px solid white;            
+        }
+
+        #inicio {
+            flex-direction: column;
+            margin: auto;           
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+        }
+
+        #sec {
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            align-items: center;
+            margin-top: 14%;
+        }
+
+        #imprimir {
+            display: none;
+            flex-direction: column;
+            border: 0.1px solid wheat;
+            height: 17rem;
+            width: auto;
+            padding: 2rem;
+            border-radius: 2rem;
+            margin-left: 28rem;
+        }
+
+        #resultado {
+            display: flex;
+            justify-content: center;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+            color: white;
+            align-items: center;
+            margin: auto;
+        }
+
+        #enviando{
+            color: yellow;
+            font-size: 1.55rem;
+            font-weight: 900;
+            display: flex;
+            justify-content: center;
+        }
+
+        #pedidoconfirmado {
+            color: rgb(54, 210, 54);
+            font-size: 2.3rem;
+            font-weight: 800;
+            margin: auto;
+        }
+
+        .div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        #form {
+            display: none;
+            margin-right: 5.5rem;
+            flex-direction: column;
+            border: 1px solid wheat;
+            border-radius: 2rem;
+            padding: 2rem;
+            width: 18rem;
+            height: 18rem;
+            
+        }
+
+        .label {
+            color: white;
+            margin-top: 0.4rem;
+            margin-left: 0.8rem;
+            letter-spacing: 1px;
+            font-size: 1rem;
+        }
+
+        .input {
+            background-color: darkblue;
+            height: 1.4rem;
+            color: white;
+            width: 100%;
+            margin-top: 0.4rem;
+            border-radius: 2rem;
+            border: 1px solid white;
+            font-size: 1.2rem;
+            padding: 0.1rem;
+            padding-left: 0.4rem;
+        }
+
+
+        #enviarcomida {
+            background-color: darkblue;
+            width: 100%;
+            height: 3rem;
+            margin-top: 1rem;
+            color: white;
+            cursor: pointer;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            border-radius: 2rem;
+        }
+
+        #enviarcomida:hover {
+            background-color: rgba(0, 0, 0, 0.2);
+            transition: 1.5s;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>       
+        <div id="inicio">
+            <h1>Bem Vindo ao Cardápio online</h1>
+            <h2 id="saudacao"></h2>
+            <button type="submit" onclick="pedido()" id="botao">Iniciar Pedido</button>
+            <h3 id="cod"></h3>
+        </div>
+    </header>
+
+    
+   <main>
+    <section id="sec">
+        <section class="section">
+
+            <form id="form" name="dados">
+                <div class="div">
+                    <label class="label" for="nome">Digite o seu nome</label>
+                    <input  class="input" type="text" name="nome" id="nome">
+                </div>
+    
+                <div class="div">
+                    <label class="label" for="nome">Digite o seu Prato Principal</label>
+                    <input  class="input" type="text" name="pratoP" id="pratop">
+                </div>
+                
+                <div class="div">
+                    <label class="label" for="nome">Digite a Sobremesa que Deseja</label>
+                    <input class="input" type="text" name="sobremesa" id="sobrem">
+                </div>
+    
+                <div class="div">
+                    <label class="label" for="nome">Digite a Bebida que Deseja</label>
+                    <input class="input" type="text" name="bebida" id="bebidas">
+                </div>
+    
+                <button type="submit" id="enviarcomida">Enviar Pedido</button>
+    
+            </form>
+    
+        </section>
+
+        <section class="section" id="imprimir">
+            <p id="enviando"></p>
+            <h4 id="resultado"></h4>
+            <p id="pedidoconfirmado"></p>
+        </section>
+        
+    </section>
+   </main>
+       
+</body>
+</html>
+
+<script>
+
+    var resultado = document.getElementById("resultado");
+    var imprimir = document.getElementById("imprimir");
+    var formulario = document.forms.namedItem("dados");
+    var mandandoPedido = document.getElementById("enviando");
+    var pedidoConfirmado = document.getElementById("pedidoconfirmado");
+    var tempo1 = true;
+
+    formulario.addEventListener("submit", evento => {
+        evento.preventDefault();
+
+       
+
+        const enviarPedido = new enviar(
+            formulario.nome.value,
+            formulario.pratoP.value,
+            formulario.sobremesa.value,
+            formulario.bebida.value
+        )
+
+        console.log(enviarPedido);
+        
+
+    });
+
+    function enviar(nome, prato, sobremesa, bebida) {
+        var n = "Nome: " + nome;
+        var p =  'Prato: ' + prato;
+        var s = 'Sobremesa: ' + sobremesa;
+        var b = 'Bebida: ' + bebida;
+
+        var cardapio = [n, p, s, b];
+        console.log(cardapio);
+
+                mandandoPedido.innerHTML = 'Enviando Pedido Para Cozinha'
+
+                for ( var i = 0; i < cardapio.length; i++) {
+                    console.log(cardapio[i]);
+                    resultado.innerHTML += cardapio[i] + '<br>';
+
+                    if (cardapio[i] == '') {
+                        alert("Input vazio");
+                        break
+                    } else {
+                        imprimir.style.display = "flex";
+                    }
+                }
+
+                pedidoConfirmado.innerHTML += "Pedido Enviado";
+            }
+
+
+            
+    
+    function pedido() {
+        var qaulMesa = parseInt(prompt("Qual o codigo da Sua Mesa?"));
+        var iniciar = document.getElementById("botao");
+        var saudacao = document.getElementById("saudacao");
+        var form = document.getElementById("form");
+        var cod = document.getElementById("cod");
+
+        if (qaulMesa >= 1 && qaulMesa <= 10) {
+            
+
+            var bemVindo = prompt("Qual é o seu Nome?")
+           
+
+            if ( bemVindo == '') {
+                alert("Nome Invalido, Tente Novamente")
+            }
+
+            else {
+                alert("Acesso ao Sistema liberado...")
+                iniciar.style.display = "none";
+                saudacao.style.display = "flex";
+                saudacao.innerHTML = "Olá " + bemVindo;
+
+                form.style.display = "flex";
+
+            
+            
+                if (qaulMesa < 10) {
+                    cod.innerHTML = "#0" + qaulMesa;
+                }
+
+                if (qaulMesa == 10) {
+                    cod.innerHTML = "#  " + qaulMesa;
+                }
+            }
+
+           
+        } else {
+            alert("Codigo da Mesa incorreto!!");
+        }
+        
+
+    }
+
+
+</script>
